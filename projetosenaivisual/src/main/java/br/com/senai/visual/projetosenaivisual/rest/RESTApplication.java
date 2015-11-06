@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.senai.visual.projetosenaivisual.model;
+package br.com.senai.visual.projetosenaivisual.rest;
+
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
  *
  * @author Lucionei
  */
-
-public class Pessoa {
-    
-    private Long id;
-    private String nome;
-    private String email;
-    private String telefone;
-    
+@ApplicationPath("api")
+public class RESTApplication extends Application {
     
 }
