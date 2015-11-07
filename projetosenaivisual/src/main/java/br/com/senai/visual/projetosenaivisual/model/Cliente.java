@@ -11,7 +11,7 @@ import javax.persistence.Entity;
  *
  * @author Lucionei
  */
-@Entity
+//@Entity
 public class Cliente extends Pessoa{
     private String cpfCnpj;
     

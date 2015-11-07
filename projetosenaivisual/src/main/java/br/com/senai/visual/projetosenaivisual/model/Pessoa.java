@@ -20,21 +20,21 @@ import javax.xml.bind.annotation.XmlRootElement;
  *
  * @author Lucionei
  */
-@Entity
+/*@Entity
 @Table(name="PESSOA")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@XmlRootElement
+@XmlRootElement*/
 public abstract class Pessoa implements Serializable {
    
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
+    @Column*/
     private Long id;
-    @Column
+    //@Column
     private String nome;
-    @Column
+    //@Column
     private String email;
-    @Column
+    //@Column
     private String telefone;
     
     

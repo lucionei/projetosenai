@@ -5,14 +5,49 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Lucionei
  */
-public class Unidade {
+@Entity
+@Table(name="UNIDADE")
+public class Unidade implements Serializable {
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
-    private String descicao;
+    @Column(nullable=true, length=30)
+    private String descricao;
+    @Column(name="DESCRICAO_ABREVIADA", nullable=false, length=5)
     private String descricaoAbreviada;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricaoAbreviada() {
+        return descricaoAbreviada;
+    }
+
+    public void setDescricaoAbreviada(String descricaoAbreviada) {
+        this.descricaoAbreviada = descricaoAbreviada;
+    }
     
 }
