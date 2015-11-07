@@ -6,6 +6,7 @@
 package br.com.senai.visual.projetosenaivisual.dao;
 
 import br.com.senai.visual.projetosenaivisual.model.Unidade;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -14,31 +15,38 @@ import javax.persistence.TypedQuery;
 /**
  *
  * @author jean_pandini
+ * @param <T>
  */
-public abstract class AbstractDAO {
+public abstract class AbstractDAO<T> implements Serializable {
+    
+    private final Class<T> entityClass;
     
     @PersistenceContext(unitName = "projetosenaivisualPU")
     private EntityManager em;
 
-    public void insere(Unidade objDAO) {
-        em.persist(objDAO);
+    public AbstractDAO(Class<T> entityClass) {
+        this.entityClass = entityClass;
+    }
+    
+    public void insere(T obj) {
+        em.persist(obj);
     }
 
-    public void excluir(Unidade unidade) {
+    public void excluir(T unidade) {
         em.remove(unidade);
     }
 
-    public Unidade buscar(Long id) {
-        return em.find(Unidade.class, id);
+    public T buscar(Long id) {
+        return em.find(this.entityClass, id);
     }
 
-    public Unidade atualizar(Unidade unidade) {
-        return em.merge(unidade);
+    public T atualizar(T objDAO) {
+        return em.merge(objDAO);
     }
 
     public List<?> lista() {
-        TypedQuery<Unidade> q = em.createQuery("SELECT u " +
-                "FROM Unidade u order by u.descricaoAbreviada", Unidade.class);
+        TypedQuery<?> q = em.createQuery("SELECT u " +
+                "FROM Unidade u order by u.descricaoAbreviada", this.entityClass);
         return q.getResultList();
     }
 }

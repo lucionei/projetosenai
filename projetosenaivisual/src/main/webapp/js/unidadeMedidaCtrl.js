@@ -38,12 +38,12 @@ function UnidadeController($scope, Unidade) {
 
     
 
-    $scope.editar = function (contato) {
-        $scope.contato = angular.copy(contato);
+    $scope.editar = function (unidade) {
+        $scope.unidade = angular.copy(unidade);
     };
 
-    $scope.deletar = function (contato) {
-        contato.remove().then(function () {
+    $scope.deletar = function (unidade) {
+        unidade.remove().then(function () {
             $scope.listar();
         }, function (error) {
             console.log('error', error);
