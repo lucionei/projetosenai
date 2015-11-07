@@ -1,0 +1,47 @@
+<center>
+    <h1>Cadastro de unidade</h1>
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="id">ID</label>
+                <div class="controls">
+                    <input id="id" type="text" ng-model="unidade.id" disabled="true" />
+                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="descricao">Descrição</label>
+                <div class="controls">
+                    <input id="descricao" type="text" ng-model="unidade.descricao" />
+                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="abreviatura">Abreviatura</label>
+                <div class="controls">
+                    <input id="abreviatura" type="text" ng-model="unidade.abrvi" />
+                </div>    
+        </div>
+        <div class="btn-group" role="group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-lg glyphicon glyphicon-floppy-save" ng-click="gravar()" title="Gravar"> Gravar</button>
+            </div>        
+        </div>  
+    </div>  
+    <h1>Lista de Unidades</h1>
+    <table style="width: 100%">
+        <tr>
+            <td>ID</td>
+            <td>Descrição</td>
+            <td>Abreviatura</td>
+        </tr>
+        <tr ng-repeat="unidade in listUnidades">
+            <td>{{unidade.id}}</td>
+            <td>{{unidade.descricao}}</td>
+            <td>{{unidade.abrvi}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(unidade)"  title="Editar"></button>
+                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="deletar(unidade)" title="Escluir"></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</center>
