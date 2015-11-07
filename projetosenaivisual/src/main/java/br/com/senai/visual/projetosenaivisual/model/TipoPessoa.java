@@ -10,7 +10,18 @@ package br.com.senai.visual.projetosenaivisual.model;
  * @author Lucionei
  */
 public enum TipoPessoa {
-    
-    
-    
+
+    FISICA("F"),
+    JURIDICA("J");
+
+    private final String tipo;
+
+    TipoPessoa(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getTipo() {
+        return this.tipo;
+    }
+
 }
