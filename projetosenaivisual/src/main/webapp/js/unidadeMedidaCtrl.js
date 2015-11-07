@@ -2,10 +2,14 @@
 
 function UnidadeController($scope, Unidade) {
     
+    var limpar = function () {
+        $scope.unidade = {};
+    };
+    
     $scope.gravar = function () {
         if ($scope.unidade.id) {
             $scope.unidade.update().then(function () {
-                $scope.limpar();
+                limpar();
                 $scope.listar();
             }, function (error) {
                 console.log('error', error);
@@ -14,17 +18,13 @@ function UnidadeController($scope, Unidade) {
         } else {
             new Unidade($scope.unidade).create()
                     .then(function () {
-                        $scope.limpar();
+                        limpar();
                         $scope.listar();
                     }, function (error) {
                         console.log('error', error);
                         alert(error.data);
                     });
         }
-    };
-    
-    limpar = function () {
-        $scope.unidade = {};
     };
 
     $scope.listar = function () {
@@ -35,8 +35,6 @@ function UnidadeController($scope, Unidade) {
             alert(error.data);
         });
     };
-
-    
 
     $scope.editar = function (unidade) {
         $scope.unidade = angular.copy(unidade);
@@ -51,11 +49,11 @@ function UnidadeController($scope, Unidade) {
         });
     };
 
-    $scope.limpar();
+    limpar();
     $scope.listar();
 }
 function UnidadeRoute($stateProvider) {
-    $stateProvider.state('visual', {
+    $stateProvider.state('unidade', {
         url: '/unidade',
         templateUrl: 'views/unidade_medida.html',
         controller: 'UnidadeController'

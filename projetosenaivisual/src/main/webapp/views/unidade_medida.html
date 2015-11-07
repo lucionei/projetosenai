@@ -16,7 +16,7 @@
         <div class="control-group">
             <label class="control-label" for="abreviatura">Abreviatura</label>
                 <div class="controls">
-                    <input id="abreviatura" type="text" ng-model="unidade.abrvi" />
+                    <input id="abreviatura" type="text" ng-model="unidade.descricaoAbreviada" />
                 </div>    
         </div>
         <div class="btn-group" role="group">
@@ -35,7 +35,7 @@
         <tr ng-repeat="unidade in listUnidades">
             <td>{{unidade.id}}</td>
             <td>{{unidade.descricao}}</td>
-            <td>{{unidade.abrvi}}</td>
+            <td>{{unidade.descricaoAbreviada}}</td>
             <td>
                 <div class="btn-group">
                     <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(unidade)"  title="Editar"></button>
