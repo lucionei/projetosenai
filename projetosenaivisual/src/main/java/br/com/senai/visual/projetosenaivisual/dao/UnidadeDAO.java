@@ -26,8 +26,8 @@ public class UnidadeDAO {
         em.persist(unidade);
     }
 
-    public void excluir(Unidade unidade) {
-        em.remove(unidade);
+    public void excluir(Long id) {
+        em.remove(em.getReference(Unidade.class, id));
     }
 
     public Unidade buscar(Long id) {
