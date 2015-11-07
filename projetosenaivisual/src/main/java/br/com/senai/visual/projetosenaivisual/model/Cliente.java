@@ -5,10 +5,14 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
+import javax.persistence.Entity;
+
 /**
  *
  * @author Lucionei
  */
-public class Cliente {
+@Entity
+public class Cliente extends Pessoa{
+    private String cpfCnpj;
     
 }

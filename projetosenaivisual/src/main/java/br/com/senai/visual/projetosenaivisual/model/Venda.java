@@ -5,10 +5,18 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
+import java.util.Date;
+import java.util.List;
+
 /**
  *
  * @author Lucionei
  */
 public class Venda {
+    
+    private Long id;
+    private Cliente cliente;
+    private Date dataEmissao;
+    private List<ItemVenda> itemVenda;
     
 }

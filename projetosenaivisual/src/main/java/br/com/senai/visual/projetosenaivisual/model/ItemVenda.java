@@ -5,10 +5,15 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
+import java.util.List;
+
 /**
  *
  * @author Lucionei
  */
 public class ItemVenda {
+    
+    private Long id;
+    private List<Produto> produto;
     
 }

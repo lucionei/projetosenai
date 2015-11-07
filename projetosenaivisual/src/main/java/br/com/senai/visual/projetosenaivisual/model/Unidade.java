@@ -11,4 +11,8 @@ package br.com.senai.visual.projetosenaivisual.model;
  */
 public class Unidade {
     
+    private Long id;
+    private String descicao;
+    private String descricaoAbreviada;
+    
 }

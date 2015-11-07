@@ -11,4 +11,6 @@ package br.com.senai.visual.projetosenaivisual.model;
  */
 public enum TipoPessoa {
     
+    
+    
 }
