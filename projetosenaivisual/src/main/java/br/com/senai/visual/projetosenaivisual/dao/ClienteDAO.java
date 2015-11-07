@@ -29,6 +29,14 @@ public class ClienteDAO {
     public void excluir(Long id) {
         em.remove(em.getReference(Cliente.class, id));
     }
+    
+    public Cliente buscar(Long id) {
+        return em.find(Cliente.class, id);
+    }
+    
+    public Cliente atualizar(Cliente cliente) {
+        return em.merge(cliente);
+    }
 
     public List<Cliente> lista() {
         TypedQuery<Cliente> q = em.createQuery("SELECT c "
