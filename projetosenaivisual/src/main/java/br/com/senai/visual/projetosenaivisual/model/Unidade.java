@@ -17,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -37,6 +38,7 @@ public class Unidade implements Serializable {
     @Column(nullable = true, length = 30)
     private String descricao;
     @Column(name = "DESCRICAO_ABREVIADA", nullable = false, length = 5)
+    @Size(min = 1)
     private String descricaoAbreviada;
     @OneToMany(mappedBy = "unidade")
     private List<Produto> produto;
