@@ -1,4 +1,3 @@
-<center>
     <h1>Cadastro de unidade</h1>
     <div class="form-horizontal">
         <div class="control-group">
@@ -10,13 +9,13 @@
         <div class="control-group">
             <label class="control-label" for="descricao">Descrição</label>
                 <div class="controls">
-                    <input id="descricao" type="text" ng-model="unidade.descricao" />
+                    <input id="descricao" type="text" ng-model="unidade.descricao" size="50" maxlength="30" />
                 </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="abreviatura">Abreviatura</label>
                 <div class="controls">
-                    <input id="abreviatura" type="text" ng-model="unidade.descricaoAbreviada" />
+                    <input id="abreviatura" type="text" ng-model="unidade.descricaoAbreviada" maxlength="5" />
                 </div>    
         </div>
         <div class="btn-group" role="group">
@@ -25,6 +24,7 @@
             </div>        
         </div>  
     </div>  
+<center>
     <h1>Lista de Unidades</h1>
     <table style="width: 100%">
         <tr>
