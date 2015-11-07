@@ -9,6 +9,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -19,9 +22,6 @@ public class Cliente extends Pessoa {
 
     @Column(nullable = false, length = 14)
     private String cpfCnpj;
-    @Enumerated(EnumType.STRING)
-    @Column(length = 1)
-    private TipoPessoa tipoPessoa;
 
     public String getCpfCnpj() {
         return cpfCnpj;
@@ -29,14 +29,6 @@ public class Cliente extends Pessoa {
 
     public void setCpfCnpj(String cpfCnpj) {
         this.cpfCnpj = cpfCnpj;
-    }
-
-    public TipoPessoa getTipoPessoa() {
-        return tipoPessoa;
-    }
-
-    public void setTipoPessoa(TipoPessoa tipoPessoa) {
-        this.tipoPessoa = tipoPessoa;
     }
 
 }

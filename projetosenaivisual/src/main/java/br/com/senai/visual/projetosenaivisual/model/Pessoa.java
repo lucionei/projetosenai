@@ -7,6 +7,8 @@ package br.com.senai.visual.projetosenaivisual.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -34,6 +36,9 @@ public abstract class Pessoa implements Serializable {
     private String email;
     @Column(nullable = false, length = 30)
     private String telefone;
+    @Enumerated(EnumType.STRING)
+    @Column(length = 1)
+    private TipoPessoa tipoPessoa;
 
     public Long getId() {
         return id;
@@ -61,6 +66,14 @@ public abstract class Pessoa implements Serializable {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public TipoPessoa getTipoPessoa() {
+        return tipoPessoa;
+    }
+
+    public void setTipoPessoa(TipoPessoa tipoPessoa) {
+        this.tipoPessoa = tipoPessoa;
     }
 
 }

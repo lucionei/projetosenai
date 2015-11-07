@@ -5,10 +5,13 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
+import javax.xml.bind.annotation.XmlType;
+
 /**
  *
  * @author Lucionei
  */
+@XmlType
 public enum TipoPessoa {
 
     FISICA("F"),
