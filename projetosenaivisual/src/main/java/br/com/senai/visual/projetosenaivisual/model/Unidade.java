@@ -21,24 +21,24 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Lucionei
  */
 @Entity
-@Table(name="UNIDADE")
+@Table(name = "UNIDADE")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Unidade implements Serializable {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    @Column(nullable=true, length=30)
+    @Column(nullable = true, length = 30)
     private String descricao;
-    @Column(name="DESCRICAO_ABREVIADA", nullable=false, length=5)
+    @Column(name = "DESCRICAO_ABREVIADA", nullable = false, length = 5)
     private String descricaoAbreviada;
 
     public Long getId() {
         return id;
     }
-    
+
     public String getDescricao() {
         return descricao;
     }
@@ -54,5 +54,5 @@ public class Unidade implements Serializable {
     public void setDescricaoAbreviada(String descricaoAbreviada) {
         this.descricaoAbreviada = descricaoAbreviada;
     }
-    
+
 }

@@ -7,35 +7,60 @@ package br.com.senai.visual.projetosenaivisual.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
+import javax.persistence.MappedSuperclass;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Lucionei
  */
-/*@Entity
-@Table(name="PESSOA")
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@XmlRootElement*/
+@MappedSuperclass
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Pessoa implements Serializable {
-   
-    /*@Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column*/
+    @Column
     private Long id;
-    //@Column
+    @Column(nullable = false, length = 150)
     private String nome;
-    //@Column
+    @Column(nullable = false, length = 200)
     private String email;
-    //@Column
+    @Column(nullable = false, length = 30)
     private String telefone;
-    
-    
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
 }
