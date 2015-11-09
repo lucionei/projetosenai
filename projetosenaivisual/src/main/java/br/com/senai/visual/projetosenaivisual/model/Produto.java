@@ -11,7 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -31,7 +32,8 @@ public class Produto implements Serializable {
     private Long id;
     @Column(nullable = false, length = 255)
     private String descricao;
-    @ManyToOne
+    @OneToOne
+    @JoinColumn(name = "uniade")
     private Unidade unidade;
 
     public Long getId() {

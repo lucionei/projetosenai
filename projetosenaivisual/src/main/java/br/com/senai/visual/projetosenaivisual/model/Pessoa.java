@@ -37,7 +37,7 @@ public abstract class Pessoa implements Serializable {
     @Column(nullable = false, length = 30)
     private String telefone;
     @Enumerated(EnumType.STRING)
-    @Column(length = 1)
+    @Column(length = 10)
     private TipoPessoa tipoPessoa;
 
     public Long getId() {

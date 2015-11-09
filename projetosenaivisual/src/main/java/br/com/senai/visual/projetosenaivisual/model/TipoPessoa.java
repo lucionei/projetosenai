@@ -14,10 +14,10 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType
 public enum TipoPessoa {
 
-    FISICA("F"),
-    JURIDICA("J");
+    FISICA,
+    JURIDICA;
 
-    private final String tipo;
+   /* private final String tipo;
 
     TipoPessoa(String tipo) {
         this.tipo = tipo;
@@ -26,5 +26,5 @@ public enum TipoPessoa {
     public String getTipo() {
         return this.tipo;
     }
-
+*/
 }
