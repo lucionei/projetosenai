@@ -5,15 +5,67 @@
  */
 package br.com.senai.visual.projetosenaivisual.model;
 
-import java.util.List;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
  * @author Lucionei
  */
-public class ItemVenda {
-    
+@Entity
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ItemVenda implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
-    private List<Produto> produto;
+    @JoinColumn(name = "venda")
+    private Venda venda;
+    @OneToOne
+    @JoinColumn(name = "produto")
+    private Produto produto;
+    @Column
+    private Double valorItem;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Venda getVenda() {
+        return venda;
+    }
+
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Double getValorItem() {
+        return valorItem;
+    }
+
+    public void setValorItem(Double valorItem) {
+        this.valorItem = valorItem;
+    }
     
+    
+
 }

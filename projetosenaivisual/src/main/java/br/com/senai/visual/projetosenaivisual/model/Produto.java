@@ -33,7 +33,7 @@ public class Produto implements Serializable {
     @Column(nullable = false, length = 255)
     private String descricao;
     @OneToOne
-    @JoinColumn(name = "uniade")
+    @JoinColumn(name = "unidade")
     private Unidade unidade;
 
     public Long getId() {

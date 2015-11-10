@@ -36,7 +36,7 @@ public class Unidade implements Serializable {
     @Column(name = "DESCRICAO_ABREVIADA", nullable = false, length = 5)
     @Size(min = 1)
     private String descricaoAbreviada;
-
+    
     public Long getId() {
         return id;
     }
