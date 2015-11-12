@@ -1,0 +1,54 @@
+    <h1>Cadastro de produto</h1>
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="id">Código</label>
+                <div class="controls">
+                    <input id="id" style="text-align:right" type="text" ng-model="produto.id" disabled="true" />
+                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="descricao">Descrição</label>
+                <div class="controls">
+                    <input id="descricao" type="text" ng-model="produto.descricao" size="50" maxlength="30" />
+                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="unidade">Unidade</label>
+            <div class="controls">
+                <select id="unidade" type="text" ng-model="produto.unidade" ng-options="unidade.descricao for unidade in listUnidades">
+                    <option value="">{{produto.unidade.descricao}}</option>
+                </select>
+            </div>    
+        </div>
+        <br/>
+        <div class="btn-group" role="group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-lg glyphicon glyphicon-floppy-save" ng-click="gravar()" title="Gravar"> Gravar</button>
+            </div>        
+        </div>  
+    </div>  
+<div>
+    <br/>
+    <h1>Lista de produtos</h1>
+    <br/>
+    <label>Pesquisar: <input ng-model="searchText"></label>
+    <br/><br/>
+    <table style="width: 100%">
+        <tr>
+            <td><label>ID</label></td>
+            <td><label>Descrição</label></td>
+            <td><label>Unidade de medida</label></td>
+        </tr>
+        <tr ng-repeat="produto in listProdutos | filter:searchText">
+            <td>{{produto.id}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.unidade.descricao}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(produto)"  title="Editar"></button>
+                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="deletar(produto)" title="Escluir"></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

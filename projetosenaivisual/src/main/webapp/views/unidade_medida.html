@@ -18,21 +18,26 @@
                     <input id="abreviatura" type="text" ng-model="unidade.descricaoAbreviada" maxlength="5" />
                 </div>    
         </div>
+        <br/>
         <div class="btn-group" role="group">
             <div class="btn-group" role="group">
                 <button class="btn btn-primary btn-lg glyphicon glyphicon-floppy-save" ng-click="gravar()" title="Gravar"> Gravar</button>
             </div>        
         </div>  
     </div>  
-<center>
+<div>
+    <br/>
     <h1>Lista de Unidades</h1>
+    <br/>
+    <label>Pesquisar: <input ng-model="searchText"></label>
+    <br/><br/>
     <table style="width: 100%">
         <tr>
-            <td>ID</td>
-            <td>Descrição</td>
-            <td>Abreviatura</td>
+            <td><label>ID</label></td>
+            <td><label>Descrição</label></td>
+            <td><label>Abreviatura</label></td>
         </tr>
-        <tr ng-repeat="unidade in listUnidades">
+        <tr ng-repeat="unidade  in listUnidades | filter:searchText">
             <td>{{unidade.id}}</td>
             <td>{{unidade.descricao}}</td>
             <td>{{unidade.descricaoAbreviada}}</td>
@@ -44,4 +49,4 @@
             </td>
         </tr>
     </table>
-</center>
+</div>
