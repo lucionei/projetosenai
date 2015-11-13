@@ -5,7 +5,7 @@
  */
 package br.com.senai.visual.projetosenaivisual.dao;
 
-import br.com.senai.visual.projetosenaivisual.model.Cliente;
+import br.com.senai.visual.projetosenaivisual.model.Venda;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -17,30 +17,30 @@ import javax.persistence.TypedQuery;
  * @author Lucionei
  */
 @Stateless
-public class ClienteDAO {
+public class VendaDAO {
 
     @PersistenceContext(unitName = "projetosenaivisualPU")
     private EntityManager em;
 
-    public void insere(Cliente cliente) {
-        em.persist(cliente);
+    public void insere(Venda venda) {
+        em.persist(venda);
     }
 
     public void excluir(Long id) {
-        em.remove(em.getReference(Cliente.class, id));
+        em.remove(em.getReference(Venda.class, id));
     }
 
-    public Cliente buscar(Long id) {
-        return em.find(Cliente.class, id);
+    public Venda buscar(Long id) {
+        return em.find(Venda.class, id);
     }
 
-    public Cliente atualizar(Cliente cliente) {
-        return em.merge(cliente);
+    public Venda atualizar(Venda venda) {
+        return em.merge(venda);
     }
 
-    public List<Cliente> lista() {
-        TypedQuery<Cliente> q = em.createQuery("SELECT c "
-                + "FROM Cliente c order by c.nome", Cliente.class);
+    public List<Venda> lista() {
+        TypedQuery<Venda> q = em.createQuery("SELECT v "
+                + "FROM Venda v order by v.dataEmissao", Venda.class);
         return q.getResultList();
     }
 

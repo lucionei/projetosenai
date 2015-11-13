@@ -30,7 +30,7 @@ public class ItemVenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    @JoinColumn(name = "venda")
+    @OneToOne
     private Venda venda;
     @OneToOne
     @JoinColumn(name = "produto")
