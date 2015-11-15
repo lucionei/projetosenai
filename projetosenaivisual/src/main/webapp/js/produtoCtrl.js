@@ -46,10 +46,7 @@ function ProdutoController($scope, Produto, Unidade) {
     };
 
     $scope.editar = function (produto) {
-        $scope.produto = angular.copy(produto);
-        console.log($scope.produto.unidade.id);
-        console.log($scope.produto.unidade.descricao);
-        console.log($scope.produto.unidade.descricaoAbreviada);
+        $scope.produto = angular.copy(produto);       
     };
 
     $scope.deletar = function (produto) {

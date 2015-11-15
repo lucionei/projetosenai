@@ -1,0 +1,118 @@
+    <h1>Cadastro de cliente</h1>
+    <div class="form-horizontal">
+        <div class="control-group">
+            <label class="control-label" for="id">Código</label>
+                <div class="controls">
+                    <input id="id" style="text-align:right" type="text" ng-model="cliente.id" disabled="true" />
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 control-group">
+                <label class="control-label" for="nome">Nome</label>
+                    <div class="controls">
+                        <input id="nome" type="text" ng-model="cliente.nome" size="50" maxlength="30" />
+                    </div>
+            </div>
+            <div class="col-md-3 control-group">
+                <label class="control-label" for="email">E-mail</label>
+                    <div class="controls">
+                        <input id="email" type="text" ng-model="cliente.email" maxlength="5" />
+                    </div>    
+            </div>
+            <div class="col-md-3 control-group">
+                <label class="control-label" for="telefone">Telefone</label>
+                    <div class="controls">
+                        <input id="telefone" type="text" ng-model="cliente.telefone" maxlength="9" />
+                    </div>    
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-2 control-group">
+                <label class="control-label" for="tipoPessoa">Pessoa</label>
+                <div class="controls">
+                    <label><input id="tipoPessoa" type="radio" ng-model="cliente.tipoPessoa" value="F"> Física</label>
+                    <label><input id="tipoPessoa" type="radio" ng-model="cliente.tipoPessoa" value="J"> Jurídica</label>
+                </div>    
+            </div>
+            <div class="col-md-2 control-group">
+                <label class="control-label" for="cpfCnpj">Cpf/Cnpj</label>
+                    <div class="controls">
+                        <input id="cpfCnpj" type="text" ng-model="cliente.cpfCnpj" maxlength="14" />
+                    </div>    
+            </div>
+        </div>
+        <br/>
+        <fieldset>
+            <legend>Endereço</legend>
+            <div class="row">            
+                <div class="col-md-1 control-group">
+                    <label class="control-label" for="unidadeFederacao">Estado</label>
+                        <div class="controls">
+                            <input id="unidadeFederacao" type="text" ng-model="cliente.endereco.unidadeFederacao" maxlength="2" size="3" />
+                        </div>    
+                </div>
+                <div class="col-md-2 control-group">
+                    <label class="control-label" for="cidade">Cidade</label>
+                        <div class="controls">
+                            <input id="cidade" type="text" ng-model="cliente.endereco.cidade" maxlength="19" size="20" />
+                        </div>    
+                </div>
+                <div class="col-md-2 control-group">
+                    <label class="control-label" for="bairro">Bairro</label>
+                        <div class="controls">
+                            <input id="bairro" type="text" ng-model="cliente.endereco.bairro" maxlength="19" size="20" />
+                        </div>    
+                </div>
+                <div class="col-md-2 control-group">
+                    <label class="control-label" for="logradouro">Logradouro</label>
+                        <div class="controls">
+                            <input id="logradouro" type="text" ng-model="cliente.endereco.logradouro" maxlength="19" size="20" />
+                        </div>    
+                </div>
+                <div class="col-md-2 control-group">
+                    <label class="control-label" for="numero">numero</label>
+                        <div class="controls">
+                            <input id="numero" type="text" ng-model="cliente.endereco.numero" maxlength="9" size="10" />
+                        </div>    
+                </div>
+                <div class="col-md-1 control-group">
+                    <label class="control-label" for="cep">cep</label>
+                        <div class="controls">
+                            <input id="cep" type="text" ng-model="cliente.endereco.cep" maxlength="8" size="9" />
+                        </div>    
+                </div>            
+            </div>
+        </fieldset>
+        <br/>
+        <div class="btn-group" role="group">
+            <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-lg glyphicon glyphicon-floppy-save" ng-click="gravar()" title="Gravar"> Gravar</button>
+            </div>        
+        </div>  
+    </div>  
+<div>
+    <br/>
+    <h1>Lista de clientes</h1>
+    <br/>
+    <label>Pesquisar: <input ng-model="searchText"></label>
+    <br/><br/>
+    <table style="width: 100%">
+        <tr>
+            <td><label>ID</label></td>
+            <td><label>Nome</label></td>
+            <td><label>e-mail</label></td>
+        </tr>
+        <tr ng-repeat="cliente  in listCliente | filter:searchText">
+            <td>{{cliente.id}}</td>
+            <td>{{cliente.nome}}</td>
+            <td>{{cliente.telefone}}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(cliente)"  title="Editar"></button>
+                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="deletar(cliente)" title="Escluir"></button>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
