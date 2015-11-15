@@ -6,11 +6,13 @@
 package br.com.senai.visual.projetosenaivisual.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,8 +43,8 @@ public class Venda implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column
     private Date dataEmissao;
-    @OneToMany(mappedBy = "venda", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private List<ItemVenda> itemVenda;
+    //@OneToMany(mappedBy = "venda")
+    //private List<ItemVenda> itemVenda = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -64,14 +66,20 @@ public class Venda implements Serializable {
         this.dataEmissao = dataEmissao;
     }
 
-    public List<ItemVenda> getItemVenda() {
-        return itemVenda;
-    }
+    //public List<ItemVenda> getItemVenda() {
+        //return itemVenda;
+    //}
 
-    public void setItemVenda(List<ItemVenda> itemVenda) {
-        this.itemVenda = itemVenda;
-    }
+    //public void setItemVenda(List<ItemVenda> itemVenda) {
+        //this.itemVenda = itemVenda;
+    //}
     
+    //public void addItemVenda(ItemVenda itemVenda) {
+        //this.itemVenda.add(itemVenda);
+    //}
     
+    //public void revoveItemVenda(ItemVenda itemVenda) {
+        //this.itemVenda.remove(itemVenda);
+    //}
     
 }

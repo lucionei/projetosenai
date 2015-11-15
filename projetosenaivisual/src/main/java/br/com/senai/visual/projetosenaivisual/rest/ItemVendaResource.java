@@ -28,11 +28,11 @@ import javax.ws.rs.core.Response;
  *
  * @author Lucionei
  */
-//@Stateless
-//@Path("itemvenda")
-//@Produces(MediaType.APPLICATION_JSON)
+@Stateless
+@Path("itemvenda")
+@Produces(MediaType.APPLICATION_JSON)
 public class ItemVendaResource {
-    /*
+    
     @Inject
     private ItemVendaDAO itemVendaDAO;
     
@@ -73,5 +73,5 @@ public class ItemVendaResource {
         }
         return Response.ok(itemVenda).build();
     }    
-    */
+    
 }

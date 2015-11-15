@@ -6,12 +6,15 @@
 package br.com.senai.visual.projetosenaivisual.model;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -30,8 +33,9 @@ public class ItemVenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    @OneToOne
-    private Venda venda;
+    //@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    //@JoinColumn(name = "venda", nullable = false)
+    //private Venda venda;
     @OneToOne
     @JoinColumn(name = "produto")
     private Produto produto;
@@ -42,13 +46,13 @@ public class ItemVenda implements Serializable {
         return id;
     }
 
-    public Venda getVenda() {
-        return venda;
-    }
+    //public Venda getVenda() {
+    //    return venda;
+    //}
 
-    public void setVenda(Venda venda) {
-        this.venda = venda;
-    }
+    //public void setVenda(Venda venda) {
+    //    this.venda = venda;
+    //}
 
     public Produto getProduto() {
         return produto;
