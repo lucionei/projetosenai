@@ -5,7 +5,9 @@
  */
 package br.com.senai.visual.projetosenaivisual.rest;
 
+import br.com.senai.visual.projetosenaivisual.dao.ClienteDAO;
 import br.com.senai.visual.projetosenaivisual.dao.UnidadeDAO;
+import br.com.senai.visual.projetosenaivisual.model.Cliente;
 import br.com.senai.visual.projetosenaivisual.model.Unidade;
 import java.util.List;
 import java.util.Objects;
@@ -35,11 +37,12 @@ public class UnidadeResource {
     
     @Inject
     private UnidadeDAO unidadeDAO;
+
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Unidade insert(Unidade unidade) {
-        unidadeDAO.insere(unidade);
+        unidadeDAO.insere(unidade);     
         return unidade;
     }
     

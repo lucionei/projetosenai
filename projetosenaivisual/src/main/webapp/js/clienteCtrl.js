@@ -16,7 +16,7 @@ function ClienteController($scope, Cliente) {
                 alert(error.data);
             });
         } else {
-            console.log($scope.cliente);
+            $scope.cliente.type = "cliente";
             new Cliente($scope.cliente).create()
                     .then(function () {
                         limpar();

@@ -10,19 +10,19 @@
             <div class="col-md-5 control-group">
                 <label class="control-label" for="nome">Nome</label>
                     <div class="controls">
-                        <input id="nome" type="text" ng-model="cliente.nome" size="50" maxlength="30" />
+                        <input id="nome" type="text" ng-model="cliente.nome" size="50" maxlength="150" />
                     </div>
             </div>
             <div class="col-md-3 control-group">
                 <label class="control-label" for="email">E-mail</label>
                     <div class="controls">
-                        <input id="email" type="text" ng-model="cliente.email" maxlength="5" />
+                        <input id="email" type="text" ng-model="cliente.email" maxlength="200" />
                     </div>    
             </div>
             <div class="col-md-3 control-group">
                 <label class="control-label" for="telefone">Telefone</label>
                     <div class="controls">
-                        <input id="telefone" type="text" ng-model="cliente.telefone" maxlength="9" />
+                        <input id="telefone" type="text" ng-model="cliente.telefone" maxlength="30" />
                     </div>    
             </div>
         </div>
@@ -101,12 +101,31 @@
         <tr>
             <td><label>ID</label></td>
             <td><label>Nome</label></td>
+            <td><label>e-mail</label></td>
             <td><label>Telefone</label></td>
+            <td><label>Tipo pessoa</label></td>
+            <td><label>Cpf/Cnpj</label></td>
+            <td><label>Estado</label></td>
+            <td><label>Cidade</label></td>
+            <td><label>Bairro</label></td>
+            <td><label>Logradouro</label></td>
+            <td><label>Número</label></td>
+            <td><label>Cep</label></td>
+            
         </tr>
         <tr ng-repeat="cliente  in listCliente | filter:searchText">
             <td>{{cliente.id}}</td>
             <td>{{cliente.nome}}</td>
+            <td>{{cliente.email}}</td>
             <td>{{cliente.telefone}}</td>
+            <td>{{cliente.tipoPessoa}}</td>
+            <td>{{cliente.cpfCnpj}}</td>
+            <td>{{cliente.endereco.unidadeFederacao}}</td>
+            <td>{{cliente.endereco.cidade}}</td>
+            <td>{{cliente.endereco.bairro}}</td>
+            <td>{{cliente.endereco.logradouro}}</td>
+            <td>{{cliente.endereco.numero}}</td>
+            <td>{{cliente.endereco.cpe}}</td>            
             <td>
                 <div class="btn-group">
                     <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(cliente)"  title="Editar"></button>
@@ -115,4 +134,5 @@
             </td>
         </tr>
     </table>
+    <br/>
 </div>
