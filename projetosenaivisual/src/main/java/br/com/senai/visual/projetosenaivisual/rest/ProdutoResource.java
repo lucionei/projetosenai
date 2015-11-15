@@ -9,7 +9,6 @@ import br.com.senai.visual.projetosenaivisual.dao.ProdutoDAO;
 import br.com.senai.visual.projetosenaivisual.model.Produto;
 import java.util.List;
 import java.util.Objects;
-import javax.decorator.Delegate;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityNotFoundException;
