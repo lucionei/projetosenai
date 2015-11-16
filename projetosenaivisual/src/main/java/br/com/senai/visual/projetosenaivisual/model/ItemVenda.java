@@ -33,9 +33,9 @@ public class ItemVenda implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
-    //@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
-    //@JoinColumn(name = "venda", nullable = false)
-    //private Venda venda;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "venda", nullable = false)
+    private Venda venda;
     @OneToOne
     @JoinColumn(name = "produto")
     private Produto produto;
@@ -46,13 +46,13 @@ public class ItemVenda implements Serializable {
         return id;
     }
 
-    //public Venda getVenda() {
-    //    return venda;
-    //}
+    public Venda getVenda() {
+        return venda;
+    }
 
-    //public void setVenda(Venda venda) {
-    //    this.venda = venda;
-    //}
+    public void setVenda(Venda venda) {
+        this.venda = venda;
+    }
 
     public Produto getProduto() {
         return produto;
@@ -69,7 +69,5 @@ public class ItemVenda implements Serializable {
     public void setValorItem(Double valorItem) {
         this.valorItem = valorItem;
     }
-    
-    
 
 }

@@ -43,8 +43,8 @@ public class Venda implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column
     private Date dataEmissao;
-    //@OneToMany(mappedBy = "venda")
-    //private List<ItemVenda> itemVenda = new ArrayList<>();
+    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY)
+    private List<ItemVenda> itemVenda = new ArrayList<>();
 
     public Long getId() {
         return id;
