@@ -43,7 +43,7 @@ public class Venda implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column
     private Date dataEmissao;
-    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<ItemVenda> itemVenda = new ArrayList<>();
 
     public Long getId() {
@@ -66,20 +66,20 @@ public class Venda implements Serializable {
         this.dataEmissao = dataEmissao;
     }
 
-    //public List<ItemVenda> getItemVenda() {
-        //return itemVenda;
-    //}
+    public List<ItemVenda> getItemVenda() {
+        return itemVenda;
+    }
 
-    //public void setItemVenda(List<ItemVenda> itemVenda) {
-        //this.itemVenda = itemVenda;
-    //}
+    public void setItemVenda(List<ItemVenda> itemVenda) {
+        this.itemVenda = itemVenda;
+    }
     
-    //public void addItemVenda(ItemVenda itemVenda) {
-        //this.itemVenda.add(itemVenda);
-    //}
+    public void addItemVenda(ItemVenda itemVenda) {
+        this.itemVenda.add(itemVenda);
+    }
     
-    //public void revoveItemVenda(ItemVenda itemVenda) {
-        //this.itemVenda.remove(itemVenda);
-    //}
+    public void revoveItemVenda(ItemVenda itemVenda) {
+        this.itemVenda.remove(itemVenda);
+    }
     
 }

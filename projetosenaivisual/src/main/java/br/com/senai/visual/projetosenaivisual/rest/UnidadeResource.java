@@ -6,9 +6,15 @@
 package br.com.senai.visual.projetosenaivisual.rest;
 
 import br.com.senai.visual.projetosenaivisual.dao.ClienteDAO;
+import br.com.senai.visual.projetosenaivisual.dao.ProdutoDAO;
 import br.com.senai.visual.projetosenaivisual.dao.UnidadeDAO;
+import br.com.senai.visual.projetosenaivisual.dao.VendaDAO;
 import br.com.senai.visual.projetosenaivisual.model.Cliente;
+import br.com.senai.visual.projetosenaivisual.model.ItemVenda;
 import br.com.senai.visual.projetosenaivisual.model.Unidade;
+import br.com.senai.visual.projetosenaivisual.model.Venda;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 import javax.ejb.Stateless;
@@ -37,12 +43,28 @@ public class UnidadeResource {
     
     @Inject
     private UnidadeDAO unidadeDAO;
-
+    @Inject
+    private ProdutoDAO produtoDao;
+    @Inject
+    private ClienteDAO clienteDao;
+    @Inject
+    private VendaDAO vendaDao;
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Unidade insert(Unidade unidade) {
-        unidadeDAO.insere(unidade);     
+        unidadeDAO.insere(unidade);
+        Venda venda = new Venda();
+        venda.setCliente(clienteDao.buscar(1l));
+        venda.setDataEmissao(new Date());
+        ItemVenda itemVenda = new ItemVenda();
+        itemVenda.setProduto(produtoDao.buscar(1l));
+        itemVenda.setValorItem(4d);
+        itemVenda.setVenda(venda);
+        List<ItemVenda> listItemVendas = new ArrayList<>();
+        listItemVendas.add(itemVenda);
+        venda.setItemVenda(listItemVendas);
+        vendaDao.insere(venda);
         return unidade;
     }
     
