@@ -3,23 +3,49 @@
         <div class="control-group">
             <label class="control-label" for="id">Código</label>
                 <div class="controls">
-                    <input id="id" style="text-align:right" type="text" ng-model="produto.id" disabled="true" />
+                    <input id="id" style="text-align:right" type="text" ng-model="venda.id" disabled="true" />
                 </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="descricao">Descrição</label>
-                <div class="controls">
-                    <input id="descricao" type="text" ng-model="produto.descricao" size="50" maxlength="30" />
-                </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="unidade">Unidade</label>
-            <div class="controls">
-                <select id="unidade" type="text" ng-model="produto.unidade" ng-options="unidade.descricao for unidade in listUnidades">
-                    <option value="">{{produto.unidade.descricao}}</option>
+            <label class="control-label" for="cliente">Cliente</label>
+             <div class="controls">
+                <select id="cliente" type="text" ng-model="venda.cliente" ng-options="cliente.nome for cliente in listClientes">
+                    <option value="">{{venda.cliente.nome}}</option>
                 </select>
+             </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="dataEmissao">Data da venda</label>
+            <div class="controls">
+                <div class="controls">
+                    <input id="dataEmissao"  type="text" ng-model="venda.dataEmissao" />
+                </div>
             </div>    
         </div>
+        <br/>
+        <fieldset>
+            <legend>Itens da venda</legend>
+            <div class="control-group">
+                <label class="control-label" for="cliente">Produto</label>
+                <div class="controls">
+                    <select id="cliente" type="text" ng-model="itemVenda.produto" ng-options="produto.descricao for produto in listProdutos">
+                        <option value="">{{itemVenda.produto.descricao}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="valorItem">Valor do item</label>
+                <div class="controls">
+                    <div class="controls">
+                        <input id="valorItem"  type="text" ng-model="itemVenda.valorItem" />
+                    </div>
+                </div>    
+            </div>
+        </fieldset>
+        <br/>
+        <fieldset>
+            <legend>Todos os intens da venda</legend>
+        </fieldset>
         <br/>
         <div class="btn-group" role="group">
             <div class="btn-group" role="group">
