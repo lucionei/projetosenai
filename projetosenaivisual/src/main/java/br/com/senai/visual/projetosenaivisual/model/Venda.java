@@ -7,7 +7,9 @@ package br.com.senai.visual.projetosenaivisual.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -33,6 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Venda implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -43,8 +46,8 @@ public class Venda implements Serializable {
     @Temporal(TemporalType.DATE)
     @Column
     private Date dataEmissao;
-    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-    private List<ItemVenda> itemVenda = new ArrayList<>();
+    @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<ItemVenda> itemVenda;
 
     public Long getId() {
         return id;
@@ -67,19 +70,15 @@ public class Venda implements Serializable {
     }
 
     public List<ItemVenda> getItemVenda() {
-        return itemVenda;
+        return Collections.unmodifiableList(itemVenda);
     }
-
+    
     public void setItemVenda(List<ItemVenda> itemVenda) {
-        this.itemVenda = itemVenda;
+        this.itemVenda = itemVenda != null ? new LinkedList<>(itemVenda): null;
     }
     
-    public void addItemVenda(ItemVenda itemVenda) {
-        this.itemVenda.add(itemVenda);
+    public void addItemVenda(ItemVenda itemVenda){
+        if(this.itemVenda == null)
+            this.itemVenda = new LinkedList<>();
     }
-    
-    public void revoveItemVenda(ItemVenda itemVenda) {
-        this.itemVenda.remove(itemVenda);
-    }
-    
 }
