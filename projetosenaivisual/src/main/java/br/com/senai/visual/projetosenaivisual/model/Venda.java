@@ -74,7 +74,13 @@ public class Venda implements Serializable {
     }
     
     public void setItemVenda(List<ItemVenda> itemVenda) {
-        this.itemVenda = itemVenda != null ? new LinkedList<>(itemVenda): null;
+        if(itemVenda != null && !itemVenda.isEmpty()){
+            this.itemVenda = new ArrayList<>();
+            for(ItemVenda item : itemVenda){
+                item.setVenda(this);
+                this.itemVenda.add(item);
+            }
+        }
     }
     
     public void addItemVenda(ItemVenda itemVenda){
