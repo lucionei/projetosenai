@@ -48,7 +48,7 @@ public class Venda implements Serializable {
     private Date dataEmissao;
     @OneToMany(mappedBy = "venda", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ItemVenda> itemVenda;
-
+    
     public Long getId() {
         return id;
     }
@@ -86,5 +86,13 @@ public class Venda implements Serializable {
     public void addItemVenda(ItemVenda itemVenda){
         if(this.itemVenda == null)
             this.itemVenda = new LinkedList<>();
+    }
+    
+    public Double getTotal() {
+        Double total = 0.00;
+        for (ItemVenda item : itemVenda) {
+            total += item.getQuantidade() * item.getValorItem();
+        }
+        return total;
     }
 }
