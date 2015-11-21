@@ -18,33 +18,43 @@
             <label class="control-label" for="dataEmissao">Data da venda</label>
             <div class="controls">
                 <div class="controls">
-                    <input id="dataEmissao"  type="text" ng-model="venda.dataEmissao" />
+                    <input id="dataEmissao"  type="date" ng-model="venda.dataEmissao" />
                 </div>
             </div>    
         </div>
         <br/>
         <fieldset>
             <legend>Itens da venda</legend>
-            <div class="control-group">
-                <label class="control-label" for="cliente">Produto</label>
-                <div class="controls">
-                    <select id="cliente" type="text" ng-model="itemVenda.produto" ng-options="produto.descricao for produto in listProdutos">
-                        <option value="">{{itemVenda.produto.descricao}}</option>
+            <table border="1">
+                <tr>                  
+                  <th>Produto</th>
+                  <th>Quantidade</th>
+                  <th>Valor</th>
+                  <th>Ação</th>
+                </tr>
+                <tr ng-repeat="item in venda.itemVenda">
+                  <td>
+                    <select id="cliente" type="text" ng-model="item.produto" ng-options="produto.descricao for produto in listProdutos">
+                        <option value="">{{item.produto.descricao}}</option>
                     </select>
-                </div>
-            </div>
-            <div class="control-group">
-                <label class="control-label" for="valorItem">Valor do item</label>
-                <div class="controls">
-                    <div class="controls">
-                        <input id="valorItem"  type="text" ng-model="itemVenda.valorItem" />
-                    </div>
-                </div>    
-            </div>
+                  </td>
+                  <td>
+                      <input id="quantidade"  type="number" ng-model="item.quantidade" />
+                  </td>
+                  <td>
+                    <input id="valorItem"  type="number" ng-model="item.valorItem" />
+                  </td>
+                  <td>
+                    <a ng-click="deleteRow(item)">Excluir</a>
+                  </td>
+                </tr>
+            </table>
+            <br/>
+            <button ng-click="addRow()">Adicionar linha</button>                     
         </fieldset>
         <br/>
         <fieldset>
-            <legend>Todos os intens da venda</legend>
+            <legend></legend>
         </fieldset>
         <br/>
         <div class="btn-group" role="group">
@@ -55,26 +65,39 @@
     </div>  
 <div>
     <br/>
-    <h1>Lista de produtos</h1>
+    <h1>Lista de Vendas</h1>
     <br/>
     <label>Pesquisar: <input ng-model="searchText"></label>
     <br/><br/>
     <table style="width: 100%">
         <tr>
+            <td><label>Expandir</label></td>
             <td><label>ID</label></td>
-            <td><label>Descrição</label></td>
-            <td><label>Unidade de medida</label></td>
+            <td><label>Cliente</label></td>
+            <td><label>Data</label></td>
         </tr>
-        <tr ng-repeat="produto in listProdutos | filter:searchText">
-            <td>{{produto.id}}</td>
-            <td>{{produto.descricao}}</td>
-            <td>{{produto.unidade.descricao}}</td>
+        <tr ng-repeat="venda in listVendas | filter:searchText">
+            <td><div ng-click="open(venda)"> + </div></td>
+                <td>{{venda.id}}</td>
+                <td>{{venda.cliente.nome}}</td>
+                <td>{{venda.dataEmissao | date:'dd/MM/yyyy'}}</td>
             <td>
                 <div class="btn-group">
-                    <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(produto)"  title="Editar"></button>
-                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="deletar(produto)" title="Escluir"></button>
+                    <button class="btn btn-info btn-sm glyphicon glyphicon-pencil"  ng-click="editar(venda)"  title="Editar"></button>
+                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" ng-click="deletar(venda)" title="Escluir"></button>
                 </div>
             </td>
+            <ng-switch on="anyItemOpen()">
+                <div ng-switch-when="true">                    
+                    <label>Detalhes da venda</label>
+                    <div ng-repeat="item in opened.itemVenda">
+                        Produto: {{item.produto.descricao}} - Quantidade: {{item.quantidade}} - Valor: {{item.valorItem}}                             
+                </div>
+                <br/>
+                <a ng-click="close()">close</a>
+                <br/>
+            </ng-switch>            
         </tr>
     </table>
+    <br/><br/>
 </div>

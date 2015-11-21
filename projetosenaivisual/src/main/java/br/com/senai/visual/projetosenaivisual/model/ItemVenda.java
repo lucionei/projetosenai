@@ -41,6 +41,8 @@ public class ItemVenda implements Serializable {
     private Produto produto;
     @Column
     private Double valorItem;
+    @Column
+    private Double quantidade;
 
     public Long getId() {
         return id;
@@ -68,6 +70,14 @@ public class ItemVenda implements Serializable {
 
     public void setValorItem(Double valorItem) {
         this.valorItem = valorItem;
+    }
+
+    public Double getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Double quantidade) {
+        this.quantidade = quantidade;
     }
 
 }

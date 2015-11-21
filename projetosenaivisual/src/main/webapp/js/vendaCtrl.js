@@ -2,8 +2,22 @@
 
 function VendaController($scope, Venda, Produto, Cliente) {
 
+    $scope.item ={};
+    var itemVenda = [];
+    itemVenda.push({produto:null, valorItem:null});
+    $scope.venda = itemVenda;
+    
+    $scope.addRow = function(){
+     $scope.venda.itemVenda.push({produto:null, valorItem:null});     
+    };
+    
+    $scope.deleteRow = function(item){
+      $scope.venda.itemVenda.pop($scope.venda.itemVenda.indexOf(item));      
+    };
+
     var limpar = function () {
         $scope.venda = {};
+        $scope.venda.itemVenda = [{}];
     };
 
     $scope.gravar = function () {
@@ -66,7 +80,27 @@ function VendaController($scope, Venda, Produto, Cliente) {
             alert(error.data);
         });
     };
-
+    
+    $scope.open = function(itemVenda){
+        if ($scope.isOpen(itemVenda)){
+            $scope.opened = undefined;
+        } else {
+            $scope.opened = itemVenda;
+        }        
+    };
+    
+    $scope.isOpen = function(item){
+        return $scope.opened === item;
+    };
+    
+    $scope.anyItemOpen = function() {
+        return $scope.opened !== undefined;
+    };
+    
+    $scope.close = function() {
+        $scope.opened = undefined;
+    };
+    
     limpar();
     listarClientes();
     $scope.listar();
