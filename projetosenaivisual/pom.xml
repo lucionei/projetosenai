@@ -50,7 +50,7 @@
             <artifactId>derbyclient</artifactId>
             <version>10.11.1.1</version>
         </dependency>       
-         <!-- Bower -->
+        <!-- Bower -->
         <dependency>
             <groupId>org.webjars.bower</groupId>
             <artifactId>jquery</artifactId>
@@ -86,6 +86,12 @@
             <artifactId>angular-ui-date</artifactId>
             <version>0.0.8</version>
         </dependency> 
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>angular-bootstrap-datetimepicker</artifactId>
+            <version>0.3.8</version>
+        </dependency>
+
     </dependencies>
 
     <build>
