@@ -53,8 +53,7 @@ public class UnidadeResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     public Unidade insert(Unidade unidade) {
-        unidadeDAO.insere(unidade);
-        Venda venda = new Venda();
+        /*Venda venda = new Venda();
         venda.setCliente(clienteDao.buscar(1l));
         venda.setDataEmissao(new Date());
         ItemVenda itemVenda = new ItemVenda();
@@ -64,7 +63,8 @@ public class UnidadeResource {
         List<ItemVenda> listItemVendas = new ArrayList<>();
         listItemVendas.add(itemVenda);
         venda.setItemVenda(listItemVendas);
-        vendaDao.insere(venda);
+        vendaDao.insere(venda);*/
+        unidadeDAO.insere(unidade);
         return unidade;
     }
     

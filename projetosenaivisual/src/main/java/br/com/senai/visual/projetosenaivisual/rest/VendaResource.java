@@ -38,9 +38,10 @@ public class VendaResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Venda insert(Venda venda) {
+    public void insert(Venda venda) {
+        venda.setItemVenda(venda.getItemVenda());
         vendaDAO.insere(venda);
-        return venda;
+        //return venda;
     }
     
     @GET
@@ -57,11 +58,12 @@ public class VendaResource {
     @PUT
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Venda update(@PathParam("id") Long id, Venda venda) {
+    public void update(@PathParam("id") Long id, Venda venda) {
         if (!Objects.equals(id, venda.getId())) {
             throw new WebApplicationException(Response.Status.BAD_REQUEST);
         }
-        return vendaDAO.atualizar(venda);
+        venda.setItemVenda(venda.getItemVenda());
+        vendaDAO.atualizar(venda);
     }
     
     @GET

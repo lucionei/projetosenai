@@ -34,8 +34,8 @@ public class VendaDAO {
         return em.find(Venda.class, id);
     }
 
-    public Venda atualizar(Venda venda) {
-        return em.merge(venda);
+    public void atualizar(Venda venda) {
+        em.merge(venda);
     }
 
     public List<Venda> lista() {
