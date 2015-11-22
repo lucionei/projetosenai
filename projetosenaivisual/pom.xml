@@ -86,12 +86,6 @@
             <artifactId>angular-ui-date</artifactId>
             <version>0.0.8</version>
         </dependency> 
-        <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>angular-bootstrap-datetimepicker</artifactId>
-            <version>0.3.8</version>
-        </dependency>
-
     </dependencies>
 
     <build>

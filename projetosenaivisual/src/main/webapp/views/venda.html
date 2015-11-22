@@ -25,12 +25,12 @@
         <br/>
         <fieldset>
             <legend>Itens da venda</legend>
-            <table border="1">
+            <table style="width: 100%">
                 <tr>                  
                   <th>Produto</th>
                   <th>Quantidade</th>
                   <th>Valor</th>
-                  <th>Ação</th>
+                  <th></th>
                 </tr>
                 <tr ng-repeat="item in venda.itemVenda">
                   <td>
@@ -45,7 +45,7 @@
                     <input id="valorItem"  type="number" ng-model="item.valorItem" />
                   </td>
                   <td>
-                    <a ng-click="deleteRow(item)">Excluir</a>
+                    <button class="btn btn-danger btn-sm glyphicon glyphicon-trash" title="Exluir" ng-click="deleteRow(item)"></button>
                   </td>
                 </tr>
             </table>
@@ -71,13 +71,13 @@
     <br/><br/>
     <table style="width: 100%">
         <tr>
-            <td><label>Expandir</label></td>
+            <td></td>
             <td><label>ID</label></td>
             <td><label>Cliente</label></td>
             <td><label>Data</label></td>
         </tr>
         <tr ng-repeat="venda in listVendas | filter:searchText">
-            <td><div ng-click="open(venda)"> + </div></td>
+            <td><div title="Expandir" class="btn btn-info btn-sm glyphicon glyphicon-plus" ng-click="open(venda)"></div></td>
                 <td>{{venda.id}}</td>
                 <td>{{venda.cliente.nome}}</td>
                 <td>{{venda.dataEmissao | date:'dd/MM/yyyy'}}</td>
@@ -94,7 +94,7 @@
                         Produto: {{item.produto.descricao}} - Quantidade: {{item.quantidade}} - Valor: {{item.valorItem}}                             
                 </div>
                 <br/>
-                <a ng-click="close()">close</a>
+                <a ng-click="close()"></a>
                 <br/>
             </ng-switch>            
         </tr>
